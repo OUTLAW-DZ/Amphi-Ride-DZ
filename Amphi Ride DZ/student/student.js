@@ -1,7 +1,3 @@
-// ============================================================
-//  UniWay DZ — student.js (الكود النهائي الشامل والمستقر)
-// ============================================================
-
 // متغيرات المستخدم والبيانات
 let currentUser = sessionStorage.getItem('currentStudentName') || 'Guest';
 let isSubscribed = sessionStorage.getItem('isSubscribed') === 'true';
@@ -10,9 +6,8 @@ let vehicles = [];
 let offers = [];
 let currentRatePerMinute = 5;
 
-// ============================================================
+
 //  البث المباشر (Realtime) للطالب - تحديث الواجهة والخريطة تلقائياً
-// ============================================================
 function setupStudentRealtimeUpdates() {
     db.channel('student-dashboard-changes')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'stations' }, async (payload) => {
@@ -292,17 +287,17 @@ async function renderHistory() {
         return;
     }
 
-    rides.forEach(ride => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${ride.start_time}</td>
-            <td>${ride.end_time}</td>
-            <td>${ride.duration}</td>
-            <td>${ride.station}</td>
-            <td>${ride.cost}</td>
-        `;
-        tbody.appendChild(tr);
-    });
+            rides.forEach(ride => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td data-label="Start Time">${ride.start_time}</td>
+                <td data-label="End Time">${ride.end_time}</td>
+                <td data-label="Duration">${ride.duration}</td>
+                <td data-label="Station">${ride.station}</td>
+                <td data-label="Cost">${ride.cost}</td>
+            `;
+            tbody.appendChild(tr);
+        });
 }
 
 //  عرض المحطات والمركبات ديناميكياً 
