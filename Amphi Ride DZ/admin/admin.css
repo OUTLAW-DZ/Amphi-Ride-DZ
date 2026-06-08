@@ -771,7 +771,7 @@ svg {
     box-shadow: 0 4px 12px rgba(0,0,0,0.88);
     transition: transform 0.3s ease;
     border-top: 5px solid #8B5CF6;   
-    height: 200px;                                                                                                                                                                                          
+    min-height: 120px; 
 }
 .card-M:hover{
     transform: translateY(-5px);
@@ -797,15 +797,17 @@ svg {
 .location-info{
     color: #7f8c8d;
     font-size: 0.9rem;
+    margin-top: 15px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 30px ;
-    margin-bottom: 30px ;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: normal;
 }
 .btn-action-M{
     display: flex;
