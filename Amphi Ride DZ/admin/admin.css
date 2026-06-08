@@ -1045,3 +1045,106 @@ svg {
 #save-btn svg{
     stroke: white;
 }
+
+@media (max-width: 768px) {
+    
+    #student-table table,
+    #student-table thead,
+    #student-table tbody,
+    #student-table th,
+    #student-table td,
+    #student-table tr,
+    #Bike_Scooter_table table,
+    #Bike_Scooter_table thead,
+    #Bike_Scooter_table tbody,
+    #Bike_Scooter_table th,
+    #Bike_Scooter_table td,
+    #Bike_Scooter_table tr,
+    #history-table table,
+    #history-table thead,
+    #history-table tbody,
+    #history-table th,
+    #history-table td,
+    #history-table tr {
+        display: block;
+    }
+
+    #student-table thead tr,
+    #Bike_Scooter_table thead tr,
+    #history-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #student-table tr,
+    #Bike_Scooter_table tr,
+    #history-table tr {
+        border: 1px solid #e2e8f0;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    #student-table td,
+    #Bike_Scooter_table td,
+    #history-table td {
+        border: none;
+        border-bottom: 1px solid #f1f5f9;
+        position: relative;
+        padding-left: 45% !important;
+        text-align: left !important;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    #student-table td:last-child,
+    #Bike_Scooter_table td:last-child,
+    #history-table td:last-child {
+        border-bottom: none;
+    }
+
+    #student-table td:before,
+    #Bike_Scooter_table td:before,
+    #history-table td:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        padding-right: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #64748b;
+        background: #f8fafc;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        border-right: 1px solid #f1f5f9;
+        /* السحر هنا: يقرأ اسم العمود من الخاصية data-label */
+        content: attr(data-label); 
+    }
+
+    #student-table td:last-child,
+    #Bike_Scooter_table td:last-child {
+        justify-content: center;
+        padding-left: 0 !important;
+        background: #f8fafc;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #student-table td:last-child:before,
+    #Bike_Scooter_table td:last-child:before {
+        display: none; /* إخفاء كلمة Action */
+    }
+
+
+    #card-container {
+        grid-template-columns: 1fr !important; /* عمود واحد فقط */
+    }
+}
