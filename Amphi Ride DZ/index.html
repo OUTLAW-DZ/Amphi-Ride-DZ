@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amphi Ride DZ</title>
+</head>
+<body>
+    
+<div id="logins">
+    <form id="student-login-form" class="login">
+        <h1>Amphi Ride<span id="dz">DZ</span></h1>
+        <h3>Hello Student</h3>
+        <input type="text" placeholder="Full Name" name="name" required>
+        <input type="text" placeholder="BACyear+Matricule" name="BACyearMatricule" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input id="btn-login" type="submit" value="Login" name="login">
+    </form>
+    <button onclick="showAdminForm()">click here if you are an admin ?</button>
+</div>
+  <div id="logina">
+    <form id="admin-login-form" class="login">
+        <h1>Amphi Ride<span id="dz">DZ</span></h1>
+        <h3>Hello Admin</h3>
+        <input type="email" placeholder="Email" name="name" required>
+        <input type="text" placeholder="Verification code" name="CodeValidation" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input id="btn-login" type="submit" value="Login" name="login">
+  </form>
+  <button onclick="showStudentForm()">click here if you are an student ?</button>
+</div>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

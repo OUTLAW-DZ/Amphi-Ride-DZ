@@ -1,0 +1,126 @@
+/* إعدادات الخلفية العامة لصفحة الدخول */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* خلفية متدرجة هادئة */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* حاوية الفورم الأساسية */
+#logins, #logina {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* إخفاء فورم الأدمن افتراضياً */
+#logina {
+    display: none;
+}
+
+/* تصميم بطاقة تسجيل الدخول */
+.login {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); /* تأثير زجاجي */
+    padding: 40px;
+    border-radius: 30px; /* حواف دائرية كبيرة كما طلبت */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.login h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+#dz {
+       background-image: url(photo/algeria\ flag2.png);
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+    vertical-align: super;
+    font-size: 1rem;
+}
+
+.login h3 {
+    color: #7f8c8d;
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* تنسيق حقول الإدخال (Inputs) */
+.login input[type="text"],.login input[type="password"],.login input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #edf2f7;
+    border-radius: 15px;
+    background-color: #f8fafc;
+    color: #2c3e50;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box; /* لضمان عدم خروج الحقل عن الحاوية */
+}
+
+.login input:focus {
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* زر تسجيل الدخول (Submit) */
+#btn-login {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+#btn-login:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+}
+
+/* زر التبديل بين طالب وأدمن (Button) */
+#logins button ,#logina button{
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    
+    transition: 0.3s;
+}
+
+#logins button:hover,#logina button:hover {
+    color: #3498db;
+}
+
+/* تحسينات للموبايل */
+@media (max-width: 480px) {
+    .loginS {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+}

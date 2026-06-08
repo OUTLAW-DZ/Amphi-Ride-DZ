@@ -1,0 +1,559 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Sans-serif;
+}
+
+body {
+    background-color: #F3F4F6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+#dz {
+    background-image: url(../photo/algeria\ flag2.png);
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+    vertical-align: super;
+    font-size: 1rem;
+}
+
+/* ===== NAV BAR ===== */
+nav {
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover {
+    background-color: #E5E7EB;
+    color: #111;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#sidebar li {
+    width: 100%;
+}
+
+#sidebar a {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+}
+
+@media (max-width: 890px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* ===== RENT AND MAP SECTION ===== */
+#Rent_Map {
+    padding: 30px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Timer Container */
+#container-timer {
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-left: 5px solid #3498db;
+}
+
+#timer {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2c3e50;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+#stop-btn {
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+#stop-btn:hover {
+    background-color: #dc2626;
+}
+
+#container-timer p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Map + Station Layout */
+#MAP_RENT {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    min-height: 500px;
+}
+
+@media (max-width: 900px) {
+    #MAP_RENT {
+        grid-template-columns: 1fr;
+    }
+}
+
+#map {
+    border-radius: 15px;
+    min-height: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    height: 400px;
+}
+
+#station {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-left: 5px solid #10B981;
+    height: fit-content;
+    overflow-y: auto;
+}
+
+#station > p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3c3e50;
+    margin: 0;
+}
+
+#univ {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+#dispo {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+#position {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3498db;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Rent Buttons */
+#btn-rent {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+#btn-rent button {
+    flex: 1;
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#btn-rent button:hover {
+    background: #eef2ff;
+    border-color: #4F46E5;
+}
+
+#btn-rent svg {
+    fill: #4F46E5;
+    width: 20px;
+    height: 20px;
+}
+
+/* Overlay / Modal */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#select-station {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#select-station h2 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+#select {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+#select > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#select > div:hover {
+    background: #eef2ff;
+}
+
+#select input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4F46E5;
+}
+
+#confirm-btn {
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+#confirm-btn:hover {
+    background: #4338ca;
+}
+
+/* ===== HISTORY SECTION ===== */
+#history {
+    padding: 30px 5%;
+    display: none;
+}
+
+#history h1 {
+    font-size: 1.8rem;
+    color: #3c3e50;
+    margin-bottom: 25px;
+    border-left: 5px solid #3498db;
+    padding-left: 15px;
+}
+
+#student-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#student-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#student-table thead {
+    background-color: #c5c5c5af;
+}
+
+#student-table th {
+    padding: 15px;
+    color: #495057;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#student-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: #495057;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+#student-table tr:last-child td {
+    border-bottom: none;
+}
+
+#student-table tbody tr:hover {
+    background-color: #f1f8ff;
+}
+
+/* ===== PAYMENT SECTION ===== */
+#payment {
+    padding: 30px 5%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#payment h1 {
+    align-self: flex-start;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-left: 5px solid #F59E0B;
+    padding-left: 15px;
+    width: 100%;
+}
+
+#container-payment {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+}
+
+#par-min,
+#monthly {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+#monthly {
+    border: 2px solid #F59E0B;
+}
+
+#recommended {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #F59E0B;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#par-min h2,
+#monthly h2 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+#par-min p,
+#monthly p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+#DA-min,
+#DA-month {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+#btn-par-min,
+#btn-monthly {
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#btn-par-min {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+#btn-monthly {
+    background: #F59E0B;
+    color: white;
+}
+
+#btn-monthly:hover {
+    background: #d97706;
+}
+#offers-container-student{
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 15px; 
+    flex: 1;
+}
+#payment-card-overlay{
+    display:none;
+    position:fixed; 
+    top:0; left:0; width:100%; 
+    height:100%; 
+    background:rgba(0,0,0,0.7); 
+    z-index:9999; 
+    justify-content:center; 
+    align-items:center;
+}
+#payment-card-form-container{
+    background:white; 
+    padding:30px; 
+    border-radius:12px; 
+    width:350px; 
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+#payment-card-form-container h2{
+    text-align:center; 
+    color:#f59e0b; 
+    margin-bottom:5px;
+}
+#payment-card-form-container p{
+    text-align:center; 
+    font-size:0.9rem; 
+    color:#666; 
+    margin-bottom:20px;
+}
+#card-number{
+    width:100%; 
+    padding:12px; 
+    margin-bottom:15px; 
+    border:1px solid #ccc; 
+    border-radius:8px; 
+    font-size:1rem; 
+    box-sizing:border-box;
+}
+#card-details{
+    display:flex; 
+    gap:10px; 
+    margin-bottom:15px;
+}
+#card-expiry, #card-cvv{
+    width:50%; padding:12px; border:1px solid #ccc; border-radius:8px; font-size:1rem; box-sizing:border-box;
+}
+#confirm-payment-btn{
+    width:100%; 
+    padding:12px; 
+    background:#f59e0b; 
+    color:white; 
+    border:none; 
+    border-radius:8px; 
+    font-weight:bold; 
+    font-size:1rem; 
+    cursor:pointer;
+}
+
+
+/* ===== GLOBAL SVG ===== */
+svg {
+    vertical-align: middle;
+}
