@@ -203,14 +203,17 @@ function renderStudent() {
     for (var i = 0; i < students.length; i++) {
         var student = students[i];
         var tr = document.createElement("tr");
-        tr.innerHTML = '<td>' + student.name + '</td>' +
-            '<td>' + student.student_id + '</td>' +
-            '<td>' + student.bac + '</td>' +
-            '<td>••••••</td>' +
-            '<td><div id="action">' +
-                '<button class="btn-action btn-delete" onclick="askDeleteStudent(' + student.id + ')">🗑️</button>' +
-                '<button class="btn-action btn-edit" onclick="editStudent(' + student.id + ')">✏️</button>' +
-            '</div></td>';
+               tr.innerHTML = `
+            <td data-label="Name">${student.name}</td>
+            <td data-label="Student ID">${student.student_id}</td>
+            <td data-label="BAC">${student.bac}</td>
+            <td data-label="Password">••••••</td>
+            <td data-label="Action">
+                <div id="action">
+                    <button class="btn-action btn-delete" onclick="askDeleteStudent(${student.id})">🗑️</button>
+                    <button class="btn-action btn-edit" onclick="editStudent(${student.id})">✏️</button>
+                </div>
+            </td>`;
         tbody.appendChild(tr);
     }
 }
@@ -346,13 +349,12 @@ function renderBikeScooter(){
         }
 
         tr.innerHTML = 
-        '<td>' + vehicle.id + '</td>' +
-        '<td>' + vehicle.place + '</td>' +
-        '<td>' + statusHTML + '</td>' +
-        '<td>' +
-            '<button class="delete-btn" onclick="askDeleteBS(\'' + vehicle.id + '\')" style="background:none; border:none; cursor:pointer; color:red; font-size:1.2rem;">🗑️</button>' +
-        '</td>';
-        
+        `<td data-label="ID">${vehicle.id}</td>
+        <td data-label="Place">${vehicle.place}</td>
+        <td data-label="Status">${statusHTML}</td>
+        <td data-label="Action">
+            <button class="delete-btn" onclick="askDeleteBS('${vehicle.id}')" style="background:none; border:none; cursor:pointer; color:red; font-size:1.2rem;">🗑️</button>
+        </td>`;
         tbody.appendChild(tr);
     }
 }
@@ -587,12 +589,13 @@ function renderHistory() {
     for (var i = 0; i < history.length; i++) {
         var h = history[i];
         var tr = document.createElement('tr');
-        tr.innerHTML = '<td>' + (h.student_id || 'N/A') + '</td>' + 
-            '<td>' + (h.student_name || 'N/A') + '</td>' +
-            '<td>' + h.start_time + '</td>' +
-            '<td>' + h.end_time + '</td>' +
-            '<td>' + h.duration + '</td>' +
-            '<td>' + h.cost + '</td>';
+            tr.innerHTML = `
+            <td data-label="Student ID">${h.student_id || 'N/A'}</td> 
+            <td data-label="Name">${h.student_name || 'N/A'}</td>
+            <td data-label="Start">${h.start_time}</td>
+            <td data-label="End">${h.end_time}</td>
+            <td data-label="Duration">${h.duration}</td>
+            <td data-label="Cost">${h.cost}</td>`;
         tbody.appendChild(tr);
     }
 }
